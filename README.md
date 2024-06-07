@@ -25,6 +25,14 @@ git_user_name: your name
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-i3-ansible/main/bin/dotfiles)"
 ```
 
+# Post configurations
+
+Configure your ZSH style
+
+```bash
+p10k configure
+```
+
 # Big Thanks
 
 - https://github.com/ALT-F4-LLC/dotfiles
