@@ -5,3 +5,15 @@
       - neovim
     state: latest
   become: yes
+
+- name: Clone
+  ansible.builtin.git:
+    clone: yes
+    depth: 1
+    dest: "{{ ansible_user_dir }}/managed-repos/nvim"
+    force: yes
+    repo: https://github.com/MarbyRazor/nvim.git
+    single_branch: yes
+    update: yes
+    version: "{{ neovim_version | default('master') }}"
+  register: clone
