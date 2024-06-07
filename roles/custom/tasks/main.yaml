@@ -1,0 +1,5 @@
+---
+- name: Copy custom scripts
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.local/scripts"
+    src: "*"
