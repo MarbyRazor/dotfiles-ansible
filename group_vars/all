@@ -10,3 +10,4 @@ default_roles:
   - keepassxc
   - gopass
   - ripgrep
+  - kubectl
