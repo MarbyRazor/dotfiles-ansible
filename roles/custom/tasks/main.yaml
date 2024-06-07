@@ -1,4 +1,10 @@
 ---
+- name: Create a directory if it does not exists
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.local/scripts"
+    state: directory
+    mode: '0755'
+
 - name: Copy cheat
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.local/scripts/cheat"
