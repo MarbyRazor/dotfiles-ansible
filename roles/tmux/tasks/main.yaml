@@ -5,3 +5,8 @@
       - tmux
     state: latest
   become: yes
+
+- name: Copy init.lua
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.tmux.conf"
+    src: ".tmux.conf"
