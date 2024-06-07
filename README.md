@@ -27,6 +27,14 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-i3-a
 
 # Post configurations
 
+Make ZSH as default
+
+```bash
+chsh -s $(which zsh)
+```
+
+Logout and login
+
 Configure your ZSH style
 
 ```bash
