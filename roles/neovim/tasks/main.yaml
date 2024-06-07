@@ -17,3 +17,9 @@
     update: yes
     version: "{{ neovim_version | default('master') }}"
   register: clone
+
+- name: Create symbolic link 
+  file:
+    src: "{{ ansible_user_dir }}/managed-repos/nvim"
+    dest: "~/.config/nvim"
+    state: link
