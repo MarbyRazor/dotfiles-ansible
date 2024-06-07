@@ -4,3 +4,4 @@
     name:
       - fzf
     state: latest
+  become: yes

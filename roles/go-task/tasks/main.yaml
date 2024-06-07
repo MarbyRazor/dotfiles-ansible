@@ -4,3 +4,4 @@
     name:
       - go-task
     state: latest
+  become: yes
