@@ -5,8 +5,6 @@
       - curl
       - tree-sitter
       - unzip
-      - terrafmt
-      - markdownlint
     state: latest
   become: yes
   
