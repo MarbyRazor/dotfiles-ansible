@@ -1,4 +1,13 @@
 ---
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - curl
+      - tree-sitter
+      - unzip
+    state: latest
+  become: yes
+  
 - name: Install
   ansible.builtin.package:
     name:
