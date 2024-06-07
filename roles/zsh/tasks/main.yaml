@@ -11,3 +11,13 @@
     name: "{{ ansible_env['USER'] }}"
     shell: /usr/bin/zsh
   become: yes
+
+- name: Test for zsh alias
+  shell: grep -c "^source {{ playbook_dir }}/roles/zsh/files/alias" $HOME/.zshrc || true
+  register: test_grep_zsh_alias
+
+- name: Add alias to zsh
+  lineinfile:
+    dest: $HOME/.zshrc
+    line: "source {{ playbook_dir }}/roles/zsh/files/alias"
+  when: test_grep_zsh_alias.stdout == "0"
