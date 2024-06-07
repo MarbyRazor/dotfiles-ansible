@@ -9,8 +9,10 @@
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.local/scripts/cheat"
     src: "cheat"
+    mode: '0744'
 
 - name: Copy tmux-sessionizer
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.local/scripts/tmux-sessionizer"
     src: "tmux-sessionizer"
+    mode: '0744'
