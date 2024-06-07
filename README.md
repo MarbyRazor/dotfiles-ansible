@@ -1,6 +1,7 @@
 # Required
 
 - Installed Manjaro with i3
+- Update your system `sudo pacman -Syu`
 
 # Preparation
 
@@ -17,7 +18,6 @@ with the following content
 git_user_email: your-email@address.com
 git_user_name: your name
 ```
-
 
 # Installation
 
