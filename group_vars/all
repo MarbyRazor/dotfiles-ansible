@@ -3,3 +3,4 @@ default_roles:
   - neovim
   - tmux
   - zsh
+  - custom
