@@ -64,7 +64,7 @@ alias fn='find . -name "*'
 alias ff='find . -name "*.'
 alias sz='source ~/.zshrc'
 alias rp='realpath'
-alias CC='$(fc -l -n -1) | xclip -sel clip'
+# alias CC='$(fc -l -n -1) | xclip -sel clip'
 
 # executables
 # ialias curl='curl --silent --show-error'
