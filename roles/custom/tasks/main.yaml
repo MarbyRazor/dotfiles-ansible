@@ -1,18 +1,18 @@
 ---
 - name: Create a directory if it does not exists
   ansible.builtin.file:
-    path: "{{ ansible_user_dir }}/.local/scripts"
+    path: "{{ ansible_user_dir }}/.local/bin/scripts"
     state: directory
     mode: '0755'
 
 - name: Copy cheat
   ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.local/scripts/cheat"
+    dest: "{{ ansible_user_dir }}/.local/bin/scripts/cheat"
     src: "cheat"
     mode: '0744'
 
 - name: Copy tmux-sessionizer
   ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.local/scripts/tmux-sessionizer"
+    dest: "{{ ansible_user_dir }}/.local/bin/scripts/tmux-sessionizer"
     src: "tmux-sessionizer"
     mode: '0744'
