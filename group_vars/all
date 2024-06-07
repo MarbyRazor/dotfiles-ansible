@@ -2,3 +2,4 @@ default_roles:
   - git
   - neovim
   - tmux
+  - zsh
