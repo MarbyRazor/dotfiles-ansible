@@ -1,5 +1,10 @@
 ---
-- name: Copy custom scripts
+- name: Copy cheat
   ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.local/scripts"
-    src: "*"
+    dest: "{{ ansible_user_dir }}/.local/scripts/cheat"
+    src: "cheat"
+
+- name: Copy tmux-sessionizer
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.local/scripts/tmux-sessionizer"
+    src: "tmux-sessionizer"
