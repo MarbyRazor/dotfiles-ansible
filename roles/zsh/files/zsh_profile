@@ -1,5 +1,5 @@
-autoload bashcompinit
-bashcompinit
+# autoload bashcompinit
+# bashcompinit
 
 export DOTFILES=$HOME/.dotfiles
 export EDITOR="nvim"
@@ -10,31 +10,31 @@ export EDITOR="nvim"
 # -----------------------------------------------------------------------------
 # Kubernetes
 # -----------------------------------------------------------------------------
-if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
-
-alias k=kubectl
-complete -F __start_kubectl k
-export do="--dry-run=client -o yaml"
-
-alias kns=kubens
-complete -F __start_kubens kns
-
-alias knx=kubectx
-complete -F __start_kubectx knx
-
-alias kg='kubectl get'
-alias kgp='kubectl get pod'
-alias kgall='kubectl get --all-namespaces all'
-alias kdp='kubectl describe pod'
-alias kap='kubectl apply'
-alias kapf='kubectl apply -f'
-alias krm='kubectl delete'
-alias krmf='kubectl delete -f'
-alias kgs='kubectl get service'
-alias kgd='kubectl get deployments'
-alias kl='kubectl logs'
-alias kei='kubectl exec -it'
-alias kgns='kubectl get namespaces'
+# if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+#
+# alias k=kubectl
+# complete -F __start_kubectl k
+# export do="--dry-run=client -o yaml"
+#
+# alias kns=kubens
+# complete -F __start_kubens kns
+#
+# alias knx=kubectx
+# complete -F __start_kubectx knx
+#
+# alias kg='kubectl get'
+# alias kgp='kubectl get pod'
+# alias kgall='kubectl get --all-namespaces all'
+# alias kdp='kubectl describe pod'
+# alias kap='kubectl apply'
+# alias kapf='kubectl apply -f'
+# alias krm='kubectl delete'
+# alias krmf='kubectl delete -f'
+# alias kgs='kubectl get service'
+# alias kgd='kubectl get deployments'
+# alias kl='kubectl logs'
+# alias kei='kubectl exec -it'
+# alias kgns='kubectl get namespaces'
 
 # -----------------------------------------------------------------------------
 # FZF
