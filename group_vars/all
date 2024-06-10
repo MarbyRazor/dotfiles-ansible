@@ -11,3 +11,4 @@ default_roles:
   - gopass
   - ripgrep
   - kubectl
+  - i3
