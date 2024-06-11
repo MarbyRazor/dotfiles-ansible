@@ -9,8 +9,10 @@
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/i3/config"
     src: "config"
+    remote_src: yes
 
 - name: Copy Xressources
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.Xressources"
     src: ".Xresources"
+    remote_src: yes
