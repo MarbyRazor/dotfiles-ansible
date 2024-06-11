@@ -13,4 +13,4 @@
 - name: Copy Xressources
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.Xressources"
-    src: ".Xressources"
+    src: ".Xresources"
