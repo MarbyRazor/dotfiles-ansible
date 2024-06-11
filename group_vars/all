@@ -12,3 +12,4 @@ default_roles:
   - ripgrep
   - kubectl
   - i3
+  - kitty
