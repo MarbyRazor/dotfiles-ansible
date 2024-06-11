@@ -14,5 +14,5 @@
 - name: Copy Xressources
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.Xressources"
-    src: ".Xresources"
+    Overwrite settingssrc: ".Xresources"
     remote_src: yes
