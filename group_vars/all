@@ -13,3 +13,4 @@ default_roles:
   - kubectl
   - i3
   - kitty
+  - p10k
