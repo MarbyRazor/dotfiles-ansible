@@ -1,10 +1,10 @@
 --- 
-- name: Install
-  ansible.builtin.package:
-    name:
-      - timedatectl
-    state: latest
-  become: yes
+# - name: Install
+#   ansible.builtin.package:
+#     name:
+#       - timedatectl
+#     state: latest
+#   become: yes
 
 - name: Enable NTP time synchronisation
   ansible.builtin.shell:
