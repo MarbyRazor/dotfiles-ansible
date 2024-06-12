@@ -1,4 +1,5 @@
 default_roles:
+  - timedatectl
   - git
   - neovim
   - tmux
