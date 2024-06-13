@@ -49,3 +49,28 @@ export FZF_DEFAULT_OPS="--extended"
 # -----------------------------------------------------------------------------
 PATH="$PATH":"$HOME/.local/scripts/"
 bindkey -s "^f" "tmux-sessionizer\n"
+
+# -----------------------------------------------------------------------------
+# go-task
+# -----------------------------------------------------------------------------
+t (){
+    TASK=$(go-task -as | fzf)
+    go-task $TASK
+}
+
+# -----------------------------------------------------------------------------
+# gopass
+# -----------------------------------------------------------------------------
+source <(gopass comletition bash)
+
+gp (){
+    QUERY=$1
+    if [ -z "$QUERY"]; then
+        QUERY=''
+    fi
+    gopass show \
+          $(gopass ls --flat \
+           | fzf -q "$QUERY" --preview "gopass show {}" \
+          ) \
+          | xclip -sel clip
+}
