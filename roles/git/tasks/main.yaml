@@ -37,8 +37,63 @@
     scope: global
     value: "{{ git_user_name }}"
 
-- name: Set fetch.prune
+- name: Set store credentials
   community.general.git_config:
     name: credential.helper
     value: store
     scope: global
+
+- name: Set alias status
+  community.general.git_config:
+    name: alias.st
+    scope: global
+    value: status
+
+- name: Set alias checkout
+  community.general.git_config:
+    name: alias.co
+    scope: global
+    value: checkout
+
+- name: Set alias commit
+  community.general.git_config:
+    name: alias.ci
+    scope: global
+    value: commit
+
+- name: Set alias branch
+  community.general.git_config:
+    name: alias.br
+    scope: global
+    value: branch
+
+- name: Set core autocrlf
+  community.general.git_config:
+    name: core.autocrlf
+    scope: global
+    value: false
+
+- name: Set core editor
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: nvim
+
+- name: Set core preloadindex
+  community.general.git_config:
+    name: core.preloadindex
+    scope: global
+    value: true
+
+- name: Set core fscache
+  community.general.git_config:
+    name: core.fscache
+    scope: global
+    value: true
+
+- name: Set color
+  community.general.git_config:
+    name: color.ui
+    scope: global
+    value: true
+
