@@ -16,4 +16,5 @@ default_roles:
   - kitty
   - p10k
   - terraform
+  - k9s
   - yay

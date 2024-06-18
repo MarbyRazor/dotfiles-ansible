@@ -2,7 +2,6 @@
 - name: Install
   ansible.builtin.package:
     name:
-      - terraform
-      - terragrunt
+      - k9s
     state: latest
   become: yes
