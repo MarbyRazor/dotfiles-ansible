@@ -5,6 +5,10 @@
       - curl
       - tree-sitter
       - unzip
+      - npm
+      - deno
+      - prettier
+      - shfmt
     state: latest
   become: yes
   

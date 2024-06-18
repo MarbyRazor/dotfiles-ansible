@@ -35,12 +35,6 @@ chsh -s $(which zsh)
 
 Logout and login
 
-Configure your ZSH style
-
-```bash
-p10k configure
-```
-
 # Big Thanks
 
 - https://github.com/ALT-F4-LLC/dotfiles
