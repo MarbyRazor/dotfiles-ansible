@@ -9,6 +9,7 @@
       - deno
       - prettier
       - shfmt
+      - shellcheck
     state: latest
   become: yes
   

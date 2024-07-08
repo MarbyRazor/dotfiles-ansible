@@ -188,6 +188,7 @@ assign [class="firefox"] $ws2
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
+for_window [class="nvim"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
