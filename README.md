@@ -22,7 +22,7 @@ git_user_name: your name
 # Installation
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-i3-ansible/main/bin/dotfiles)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-ansible/main/bin/dotfiles)"
 ```
 
 # Post configurations
