@@ -8,7 +8,7 @@
 Create a `values.yaml`
 
 ```bash
-cd $HOME && mkdir -p .config/dotfiles && vim .config/dotfiles/values.yaml
+cd $HOME && mkdir -p $HOME/.config/dotfiles && vim $HOME/.config/dotfiles/values.yaml
 ```
 
 with the following content
