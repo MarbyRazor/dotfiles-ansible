@@ -1,5 +1,4 @@
 default_roles:
-  - timedatectl
   - git
   - neovim
   - tmux
@@ -12,9 +11,5 @@ default_roles:
   - gopass
   - ripgrep
   - kubectl
-  - i3
-  - kitty
-  - p10k
   - terraform
   - k9s
-  - yay
