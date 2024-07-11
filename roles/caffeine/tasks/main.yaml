@@ -1,0 +1,25 @@
+---
+- name: Install caffeine-ng using pamac
+  become: yes
+  command: pamac install --no-confirm caffeine-ng
+
+- name: Create autostart directory if it doesn't exist
+  file:
+    path: ~/.config/autostart
+    state: directory
+    mode: '0755'
+
+- name: Enable Caffeine on startup
+  copy:
+    dest: ~/.config/autostart/caffeine.desktop
+    content: |
+      [Desktop Entry]
+      Type=Application
+      Exec=caffeine
+      Hidden=false
+      NoDisplay=false
+      X-GNOME-Autostart-enabled=true
+      Name[en_US]=Caffeine
+      Name=Caffeine
+      Comment[en_US]=Prevents the desktop from becoming idle
+      Comment=Prevents the desktop from becoming idle

@@ -13,3 +13,4 @@ default_roles:
   - kubectl
   - terraform
   - k9s
+  - caffeine
