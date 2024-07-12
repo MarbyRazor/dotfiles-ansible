@@ -33,13 +33,15 @@ and copy the required password from your keepass file :wink:
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-ansible/main/bin/dotfiles)"
 ```
 
-# Post configurations
+# Executing the playbook
 
-Make ZSH as default
+Just type the following into your terminal
 
 ```bash
-chsh -s $(which zsh)
+dotfiles
 ```
+
+> This will execute the shell script `dotfiles`, which is automatically copied from the repo `bin/dotfiles` to your `$HOME/.local/bin/dotfiles`.
 
 Logout and login
 
