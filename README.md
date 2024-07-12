@@ -19,6 +19,14 @@ git_user_email: your-email@address.com
 git_user_name: your name
 ```
 
+Afterwards create the following file:
+
+```bash
+touch $HOME/.config/dotfiles/vault-password.txt
+```
+
+and copy the required password from your keepass file :wink:
+
 # Installation
 
 ```bash

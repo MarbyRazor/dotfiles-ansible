@@ -1,4 +1,5 @@
 default_roles:
+  - ssh
   - git
   - neovim
   - tmux
