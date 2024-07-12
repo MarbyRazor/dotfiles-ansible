@@ -9,7 +9,6 @@ default_roles:
   - go-task
   - firefox
   - keepassxc
-  - gopass
   - ripgrep
   - kubectl
   - terraform
