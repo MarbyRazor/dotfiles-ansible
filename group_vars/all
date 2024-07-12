@@ -14,3 +14,4 @@ default_roles:
   - terraform
   - k9s
   - caffeine
+  - xclip
