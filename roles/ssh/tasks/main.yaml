@@ -52,3 +52,10 @@
     path: "{{ ansible_user_dir }}/.ssh/config"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
+
+- name: Start ssh-agent
+  shell: eval "$(ssh-agent -s)"
+
+- name: Add SSH key to ssh-agent
+  command: ssh-add {{ ansible_user_dir }}/.ssh/id_github_marby_razor
+  ignore_errors: yes  # Ignore errors if ssh-agent is not running

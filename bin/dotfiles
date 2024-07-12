@@ -8,25 +8,25 @@ SSH_DIR="$HOME/.ssh"
 
 # Install Ansible
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo pacman -S ansible --noconfirm
+	sudo pacman -S ansible --noconfirm
 fi
 
 # Generate SSH keys
 if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
-  mkdir -p "$SSH_DIR"
+	mkdir -p "$SSH_DIR"
 
-  chmod 700 "$SSH_DIR"
+	chmod 700 "$SSH_DIR"
 
-  ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
+	ssh-keygen -b 4096 -t rsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
 
-  cat "$SSH_DIR/id_rsa.pub" >> "$SSH_DIR/authorized_keys"
+	cat "$SSH_DIR/id_rsa.pub" >>"$SSH_DIR/authorized_keys"
 fi
 
 # Clone repository
 if ! [[ -d "$DOTFILES_DIR" ]]; then
-  git clone "https://github.com/MarbyRazor/dotfiles-i3-ansible.git" "$DOTFILES_DIR"
+	git clone "git@github.com:MarbyRazor/dotfiles-ansible.git" "$DOTFILES_DIR"
 else
-  git -C "$DOTFILES_DIR" pull
+	git -C "$DOTFILES_DIR" pull
 fi
 
 # Create path
@@ -37,7 +37,7 @@ ansible-galaxy install -r requirements.yml
 
 # Run playbook
 if [[ -f "$CONFIG_DIR/vault-password.txt" ]]; then
-  ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" --vault-password-file "$CONFIG_DIR/vault-password.txt" "$DOTFILES_DIR/main.yaml" "$@"
+	ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" --vault-password-file "$CONFIG_DIR/vault-password.txt" "$DOTFILES_DIR/main.yaml" "$@"
 else
-  ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
+	ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
 fi
