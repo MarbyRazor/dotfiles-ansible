@@ -10,6 +10,7 @@
       - prettier
       - shfmt
       - shellcheck
+      - luarocks
     state: latest
   become: yes
   
