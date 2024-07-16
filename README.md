@@ -1,6 +1,6 @@
 # Required
 
-- Installed Manjaro with i3
+- Installed Manjaro with Gnome desktop
 - Update your system `sudo pacman -Syu`
 
 # Preparation
