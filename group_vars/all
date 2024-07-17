@@ -16,3 +16,4 @@ default_roles:
   - caffeine
   - xclip
   - manjaro
+  - signal

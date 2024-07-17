@@ -26,6 +26,20 @@
       wmctrl -r :ACTIVE: -t 1
       sleep 1
       wmctrl -r :ACTIVE: -b add,fullscreen
+
+      # Open Signal in workspace 3
+      keepassxc &
+      sleep 5
+      wmctrl -r :ACTIVE: -t 2
+      sleep 1
+      wmctrl -r :ACTIVE: -b add,fullscreen
+      
+      # Open Signal in workspace 4
+      signal-desktop &
+      sleep 5
+      wmctrl -r :ACTIVE: -t 3
+      sleep 1
+      wmctrl -r :ACTIVE: -b add,fullscreen
     mode: '0755'
   become: yes
 
