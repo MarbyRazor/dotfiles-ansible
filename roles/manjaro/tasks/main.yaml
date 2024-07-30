@@ -1,6 +1,6 @@
 ---
 - name: Install wmctrl
-  pacman:
+  ansible.builtin.package:
     name: wmctrl
     state: present
 
