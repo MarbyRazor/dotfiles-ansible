@@ -17,3 +17,4 @@ default_roles:
   - xclip
   - manjaro
   - signal
+  - pandoc
