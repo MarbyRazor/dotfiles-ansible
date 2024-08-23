@@ -1,4 +1,11 @@
 --- 
+- name: Dependencies
+  ansible.builtin.package:
+    name:
+      - texlive-binextra
+    state: latest
+  become: yes
+
 - name: Install
   ansible.builtin.package:
     name:

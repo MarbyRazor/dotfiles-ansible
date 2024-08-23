@@ -18,3 +18,4 @@ default_roles:
   - manjaro
   - signal
   - pandoc
+  - vault
