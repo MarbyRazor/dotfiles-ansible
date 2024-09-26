@@ -1,0 +1,11 @@
+--- 
+- name: Install
+  ansible.builtin.package:
+    name:
+      - azure-cli
+    state: latest
+  become: yes
+
+- name: az ssh extension
+  command: az extension add --name ssh
+  become: yes

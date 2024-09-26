@@ -19,3 +19,4 @@ default_roles:
   - signal
   - pandoc
   - vault
+  - azure-cli
