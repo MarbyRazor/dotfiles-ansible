@@ -29,6 +29,8 @@ and copy the required password from your keepass file :wink:
 
 # Installation
 
+> Maybe he is asking for your sudo password. This is needed for install the developer tools for your cli.
+
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-ansible/main/bin/dotfiles)"
 ```
