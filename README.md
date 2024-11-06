@@ -27,6 +27,8 @@ touch $HOME/.config/dotfiles/vault-password.txt
 
 and copy the required password from your keepass file :wink:
 
+Furthermore add your github ssh public and private key to `$HOME/.ssh/`.
+
 # Installation
 
 > Maybe he is asking for your sudo password. This is needed for install the developer tools for your cli.
