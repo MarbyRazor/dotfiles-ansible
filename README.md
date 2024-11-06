@@ -1,7 +1,7 @@
 # Required
 
-- Installed Manjaro with Gnome desktop
-- Update your system `sudo pacman -Syu`
+- Installed MacOS
+- Update your system
 
 # Preparation
 
