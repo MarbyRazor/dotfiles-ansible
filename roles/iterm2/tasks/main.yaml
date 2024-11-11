@@ -2,5 +2,5 @@
 - name: Install
   community.general.homebrew:
     name:
-      - keepassxc
+      - iterm2
     state: latest

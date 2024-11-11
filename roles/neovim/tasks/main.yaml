@@ -1,6 +1,6 @@
 ---
 - name: Dependencies
-  ansible.builtin.package:
+  community.general.homebrew:
     name:
       - curl
       - tree-sitter
@@ -12,14 +12,12 @@
       - shellcheck
       - luarocks
     state: latest
-  become: yes
   
 - name: Install
-  ansible.builtin.package:
+  community.general.homebrew:
     name:
       - neovim
     state: latest
-  become: yes
 
 - name: Clone
   ansible.builtin.git:

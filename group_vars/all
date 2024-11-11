@@ -1,1 +1,6 @@
 default_roles:
+  - neovim
+  - iterm2
+  - fzf
+  - tmux
+  - keepassxc
