@@ -1,43 +1,10 @@
 ---
-- name: Install
-  ansible.builtin.package:
-    name:
-      - zsh
-    state: latest
-  become: yes
+- name: Copy ZSHRC
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.zshrc"
+    src: "zshrc"
+    mode: '0744'
 
-- name: Set default
-  user:
-    name: "{{ ansible_env['USER'] }}"
-    shell: /usr/bin/zsh
-  become: yes
+- name: Reload shell configuration with Zsh
+  ansible.builtin.shell: zsh -c "source {{ ansible_user_dir }}/.zshrc"
 
-- name: Test for zsh alias
-  shell: grep -c "^source {{ playbook_dir }}/roles/zsh/files/alias" $HOME/.zshrc || true
-  register: test_grep_zsh_alias
-
-- name: Add alias to zsh
-  lineinfile:
-    dest: $HOME/.zshrc
-    line: "source {{ playbook_dir }}/roles/zsh/files/alias"
-  when: test_grep_zsh_alias.stdout == "0"
-
-- name: Test for zsh autocomplete
-  shell: grep -c "^source {{ playbook_dir }}/roles/zsh/files/autocomplete" $HOME/.zshrc || true
-  register: test_grep_zsh_autocomplete
-
-- name: Add autocomplete to zsh
-  lineinfile:
-    dest: $HOME/.zshrc
-    line: "source {{ playbook_dir }}/roles/zsh/files/autocomplete"
-  when: test_grep_zsh_autocomplete.stdout == "0"
-
-- name: Test for zsh_profile
-  shell: grep -c "^source {{ playbook_dir }}/roles/zsh/files/zsh_profile" $HOME/.zshrc || true
-  register: test_grep_zsh_profile
-
-- name: Add zsh_profile to zsh
-  lineinfile:
-    dest: $HOME/.zshrc
-    line: "source {{ playbook_dir }}/roles/zsh/files/zsh_profile"
-  when: test_grep_zsh_profile.stdout == "0"
