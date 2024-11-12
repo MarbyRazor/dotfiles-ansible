@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  developer-mode:
+    desc: "Change dotfiles repo into developer modus"
+    cmds:
+      # echo "Note: Make sure you have installed your ssh key correctly"
+      - cd $HOME/repos/dotfiles
+      - "git remote set-url origin git@github.com:MarbyRazor/dotfiles-ansible.git"
+    silent: true

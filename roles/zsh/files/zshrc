@@ -57,10 +57,27 @@ bindkey -s "^f" "tmux-sessionizer\n"
 # -----------------------------------------------------------------------------
 # go-task
 # -----------------------------------------------------------------------------
-# t (){
-#     TASK=$(go-task -as | fzf)
-#     go-task $TASK
-# }
+t () {
+    # Attempt to store the output of `task -as` while capturing any errors
+    TASK_OUTPUT=$(task -as 2>&1)  # Redirects both standard output and errors
+
+    # Check if an error occurred
+    if [ $? -ne 0 ]; then
+        # Print the error message and exit the function
+        echo "Error: $TASK_OUTPUT"
+        return 1
+    fi
+
+    # If no error occurred, call `fzf` with the output of `task -as`
+    TASK=$(echo "$TASK_OUTPUT" | fzf)
+
+    # If a selection was made, execute the selected task
+    if [ -n "$TASK" ]; then
+        task "$TASK"
+    else
+        echo "No task selected."
+    fi
+}
 
 # -----------------------------------------------------------------------------
 # gopass
@@ -117,7 +134,7 @@ alias get='git '
 #
 # alias fn='find . -name "*'
 # alias ff='find . -name "*.'
-# alias sz='source ~/.zshrc'
+alias sz='source ~/.zshrc'
 # alias rp='realpath'
 # alias CC='$(fc -l -n -1) | xclip -sel clip'
 

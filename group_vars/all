@@ -6,3 +6,4 @@ default_roles:
   - tmux
   - keepassxc
   - zsh
+  - go-task
