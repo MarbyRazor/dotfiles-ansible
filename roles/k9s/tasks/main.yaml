@@ -1,7 +1,6 @@
 --- 
 - name: Install
-  ansible.builtin.package:
+  community.general.homebrew:
     name:
       - k9s
     state: latest
-  become: yes
