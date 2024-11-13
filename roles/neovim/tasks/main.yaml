@@ -11,6 +11,7 @@
       - shfmt
       - shellcheck
       - luarocks
+      - ripgrep
     state: latest
   
 - name: Install
