@@ -5,6 +5,6 @@
     src: "zshrc"
     mode: '0744'
 
-- name: Reload shell configuration with Zsh
-  ansible.builtin.shell: zsh -c "source {{ ansible_user_dir }}/.zshrc"
+# - name: Reload shell configuration with Zsh
+#   ansible.builtin.shell: zsh -c "source {{ ansible_user_dir }}/.zshrc"
 

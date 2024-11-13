@@ -3,7 +3,9 @@ default_roles:
   - custom
   - iterm2
   - fzf
+  - fd
   - tmux
   - keepassxc
   - zsh
   - go-task
+  - k9s

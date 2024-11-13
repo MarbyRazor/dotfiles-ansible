@@ -4,3 +4,14 @@
     name:
       - fzf
     state: latest
+
+- name: Ensure managed-repos directory exists
+  file:
+    path: "{{ ansible_user_dir }}/managed-repos"
+    state: directory
+
+- name: Clone or update the fzf-git repository
+  git:
+    repo: https://github.com/junegunn/fzf-git.sh.git
+    dest: "{{ ansible_user_dir }}/managed-repos/fzf-git.sh"
+    update: yes

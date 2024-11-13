@@ -52,3 +52,4 @@ Logout and login
 # Big Thanks
 
 - https://github.com/ALT-F4-LLC/dotfiles
+- https://www.josean.com/posts/7-amazing-cli-tools
