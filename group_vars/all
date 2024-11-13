@@ -1,7 +1,6 @@
 default_roles:
   - neovim
   - custom
-  - iterm2
   - fzf
   - fd
   - tmux
@@ -9,3 +8,4 @@ default_roles:
   - zsh
   - go-task
   - k9s
+  - kitty

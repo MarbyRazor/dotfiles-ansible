@@ -8,3 +8,26 @@
 # - name: Reload shell configuration with Zsh
 #   ansible.builtin.shell: zsh -c "source {{ ansible_user_dir }}/.zshrc"
 
+- name: Install powerlevel10k
+  community.general.homebrew:
+    name:
+      - powerlevel10k
+    state: latest
+
+- name: Copy p10k.zsh configuration file
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.p10k.zsh"
+    src: "p10k.zsh"
+    mode: '0744'
+
+- name: Install zsh-syntax-highlighting
+  community.general.homebrew:
+    name:
+      - zsh-syntax-highlighting
+    state: latest
+
+- name: Install zsh-autosuggestions
+  community.general.homebrew:
+    name:
+      - zsh-autosuggestions
+    state: latest
