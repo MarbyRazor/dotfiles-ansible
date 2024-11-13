@@ -8,6 +8,11 @@
 # - name: Reload shell configuration with Zsh
 #   ansible.builtin.shell: zsh -c "source {{ ansible_user_dir }}/.zshrc"
 
+- name: Meslo Nerd Font installieren
+  community.general.homebrew:
+      name: font-meslo-lg-nerd-font
+      state: present
+
 - name: Install powerlevel10k
   community.general.homebrew:
     name:

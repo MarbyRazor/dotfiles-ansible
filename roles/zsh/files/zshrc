@@ -6,7 +6,7 @@
 # bashcompinit
 
 # export DOTFILES=$HOME/.dotfiles
-# export EDITOR="nvim"
+export EDITOR="nvim"
 
 # source $DOTFILES/bin/.local/scripts/load-k8s-configs
 
@@ -138,12 +138,11 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # # Globacl
 alias ll="ls -ahl"
 alias l="ls -ahl"
-# alias vim=$EDITOR
-# alias vi=$EDITOR
-# alias v="$EDITOR ."
-# alias reload="source ~/.zshrc"
-# alias c="code ."
-# alias ta="tmux a"
+alias vim=$EDITOR
+alias vi=$EDITOR
+alias v=$EDITOR
+alias c="code ."
+alias ta="tmux a"
 #
 # # Git
 alias gs='git status'
@@ -164,7 +163,6 @@ alias get='git '
 # # unix
 # alias c='cat'
 # alias le='less -j4'
-# alias v='vim'
 #
 # alias fn='find . -name "*'
 # alias ff='find . -name "*.'
@@ -183,7 +181,7 @@ alias sz='source ~/.zshrc'
 # alias -g Gi='| grep -i'
 # alias -g GH='| grep HTTP'
 # alias -g X='| xargs -I1'
-# alias -g C='| xclip -sel clip'
+alias -g C='| pbcopy'
 # # alias -g B='echo -n "setme" | base64 | xclip -sel clip'
 # alias -g Fj='| jq .'
 # alias -g Fy='| yq .'

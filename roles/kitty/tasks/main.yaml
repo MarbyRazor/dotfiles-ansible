@@ -5,11 +5,6 @@
       - kitty
     state: latest
 
-- name: Meslo Nerd Font installieren
-  community.general.homebrew:
-      name: font-meslo-lg-nerd-font
-      state: present
-
 - name: Create configuration directory
   file:
     path: "{{ ansible_user_dir }}/.config/kitty"

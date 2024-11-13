@@ -7,4 +7,6 @@ tasks:
       # echo "Note: Make sure you have installed your ssh key correctly"
       - cd $HOME/repos/dotfiles
       - "git remote set-url origin git@github.com:MarbyRazor/dotfiles-ansible.git"
+      - git config user.name MarbyRazor
+      - git config user.email marby.razor@web.de
     silent: true
