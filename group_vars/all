@@ -9,3 +9,6 @@ default_roles:
   - go-task
   - k9s
   - kitty
+  - chatgpt
+  - caffeine
+
