@@ -11,4 +11,4 @@ default_roles:
   - kitty
   - chatgpt
   - caffeine
-
+  - pandoc
