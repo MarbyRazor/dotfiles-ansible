@@ -1,7 +1,12 @@
 --- 
-- name: Install
-  community.general.homebrew:
-    name:
-      - vault-cli
-    state: latest
+- name: Add HashiCorp tap
+  shell: brew tap hashicorp/tap
+  args:
+    executable: /bin/bash
+  changed_when: false
 
+- name: Install HashiCorp Vault
+  shell: brew install hashicorp/tap/vault
+  args:
+    executable: /bin/bash
+  changed_when: false
