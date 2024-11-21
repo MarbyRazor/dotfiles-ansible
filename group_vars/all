@@ -12,3 +12,5 @@ default_roles:
   - chatgpt
   - caffeine
   - pandoc
+  - firefox
+  - vault
