@@ -36,3 +36,9 @@
     name:
       - zsh-autosuggestions
     state: latest
+
+- name: Install zsh-completions
+  community.general.homebrew:
+    name:
+      - zsh-completions
+    state: latest

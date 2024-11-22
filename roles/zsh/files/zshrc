@@ -17,6 +17,16 @@ export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
 
 # -----------------------------------------------------------------------------
+# zsh-completions
+# -----------------------------------------------------------------------------
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
+# -----------------------------------------------------------------------------
 # Kubernetes
 # -----------------------------------------------------------------------------
 # if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
@@ -106,19 +116,19 @@ t () {
 # -----------------------------------------------------------------------------
 # gopass
 # -----------------------------------------------------------------------------
-# source <(gopass completion bash)
+source <(gopass completion zsh)
 
-# gp (){
-#     QUERY=$1
-#     if [ -z "$QUERY"]; then
-#         QUERY=''
-#     fi
-#     gopass show \
-#           $(gopass ls --flat \
-#            | fzf -q "$QUERY" --preview "gopass show {}" \
-#           ) \
-#           | xclip -sel clip
-# }
+gp (){
+    QUERY=$1
+    if [ -z "$QUERY"]; then
+        QUERY=''
+    fi
+    gopass show \
+          $(gopass ls --flat \
+           | fzf -q "$QUERY" --preview "gopass show {}" \
+          ) \
+          | pbcopy
+}
 
 # -----------------------------------------------------------------------------
 # Powerlevel10k
