@@ -8,4 +8,21 @@
 - name: Copy .tmux.conf
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.tmux.conf"
-    src: ".tmux.conf"
+    src: "tmux.conf"
+
+- name: Check if TPM directory exists
+  stat:
+    path: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+  register: tpm_dir
+
+- name: Clone TPM if not already installed
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+  when: not tpm_dir.stat.exists
+
+- name: Ensure TPM script is executable
+  file:
+    path: "{{ ansible_user_dir }}/.tmux/plugins/tpm/tpm"
+    mode: "0755"
+  when: tpm_dir.stat.exists
