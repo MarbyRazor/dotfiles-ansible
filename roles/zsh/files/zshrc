@@ -16,6 +16,20 @@ export EDITOR="nvim"
 # Storing custom scripts
 export PATH="$HOME/.local/bin:$PATH"
 
+# run this blaizingly fast
+s () {
+  # Find all scripts in ~/.local/bin and pass them to fzf for selection
+  local script=$(find ~/.local/bin -type f | fzf --prompt="Select a script: " --height=40% --border --reverse)
+  
+  # If a script is selected, execute it
+  if [[ -n $script ]]; then
+    echo "Executing: $script"
+    "$script"
+  else
+    echo "No script selected."
+  fi
+}
+
 # -----------------------------------------------------------------------------
 # zsh-completions
 # -----------------------------------------------------------------------------
