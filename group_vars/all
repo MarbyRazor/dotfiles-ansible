@@ -15,3 +15,4 @@ default_roles:
   - firefox
   - vault
   - terraform
+  - kubectl
