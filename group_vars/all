@@ -16,3 +16,4 @@ default_roles:
   - vault
   - terraform
   - kubectl
+  - obs
