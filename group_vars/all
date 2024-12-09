@@ -17,3 +17,4 @@ default_roles:
   - terraform
   - kubectl
   - obs
+  - git

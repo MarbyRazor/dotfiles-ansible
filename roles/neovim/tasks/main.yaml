@@ -3,6 +3,7 @@
   community.general.homebrew:
     name:
       - curl
+      - wget
       - tree-sitter
       - unzip
       - npm

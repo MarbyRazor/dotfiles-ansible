@@ -1,10 +1,9 @@
 ---
 - name: Install
-  ansible.builtin.package:
+  community.general.homebrew:
     name:
       - git
     state: latest
-  become: yes
 
 - name: Set diff.colorMoved
   community.general.git_config:
@@ -24,18 +23,18 @@
     scope: global
     value: main
 
-- name: Set user.email
-  community.general.git_config:
-    name: user.email
-    scope: global
-    value: "{{ git_user_email }}"
-  no_log: true
-
-- name: Set user.name
-  community.general.git_config:
-    name: user.name
-    scope: global
-    value: "{{ git_user_name }}"
+# - name: Set user.email
+#   community.general.git_config:
+#     name: user.email
+#     scope: global
+#     value: "{{ git_user_email }}"
+#   no_log: true
+#
+# - name: Set user.name
+#   community.general.git_config:
+#     name: user.name
+#     scope: global
+#     value: "{{ git_user_name }}"
 
 - name: Set store credentials
   community.general.git_config:
