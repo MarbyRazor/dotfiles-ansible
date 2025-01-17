@@ -18,3 +18,5 @@ default_roles:
   - kubectl
   - obs
   - git
+  - azure-cli
+  - lazygit
