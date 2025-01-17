@@ -103,7 +103,7 @@ source ~/managed-repos/fzf-git.sh/fzf-git.sh
 bindkey -s "^f" "tmux-sessionizer\n"
 
 # ----------------------------------------------------------------------------
-# go-task
+# go-taskfile
 # -----------------------------------------------------------------------------
 t () {
     # Attempt to store the output of `task -as` while capturing any errors
