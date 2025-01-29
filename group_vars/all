@@ -20,3 +20,4 @@ default_roles:
   - git
   - azure-cli
   - lazygit
+  - go
