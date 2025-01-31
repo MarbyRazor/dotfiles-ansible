@@ -10,3 +10,22 @@ tasks:
       - git config user.name MarbyRazor
       - git config user.email marby.razor@web.de
     silent: true
+
+  new-role:
+    desc: "Creates a new Ansible role based on the template role"
+    cmds:
+      - |
+        echo "Enter the name of the new role:"
+        read -r role_name
+        if [ -z "$role_name" ]; then
+          echo "Error: No role name provided!"
+          exit 1
+        fi
+        if [ -d "roles/$role_name" ]; then
+          echo "Error: The role 'roles/$role_name' already exists!"
+          exit 1
+        fi
+        cp -r roles/template "roles/$role_name"
+        echo "The new role 'roles/$role_name' has been created!"
+    silent: true
+

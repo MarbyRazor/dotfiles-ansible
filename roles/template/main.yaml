@@ -1,0 +1,15 @@
+- name: "Include macOS tasks"
+  include_tasks: macos.yml
+  when: ansible_os_family == "Darwin"
+
+- name: "Include Debian tasks"
+  include_tasks: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: "Include RedHat tasks"
+  include_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: "Include Arch Linux tasks"
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"

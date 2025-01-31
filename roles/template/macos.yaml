@@ -1,0 +1,5 @@
+---
+- name: Install required packages on macOS
+  community.general.homebrew:
+    name: [git, zsh, vim]
+    state: present
