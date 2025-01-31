@@ -29,3 +29,45 @@ tasks:
         echo "The new role 'roles/$role_name' has been created!"
     silent: true
 
+  encrypt-file:
+    desc: "Encrypt a file with Ansible Vault"
+    vars:
+      FILE:
+        sh: |
+          find ./roles -type f | fzf --prompt="Select the file to encrypt: "
+    cmds:
+      - ansible-vault encrypt "{{.FILE}}" --vault-password-file "$HOME/.config/dotfiles/vault-password.txt"
+    dir: "."
+
+  decrypt-file:
+    desc: "Decrypt a file with Ansible Vault"
+    vars:
+      FILE:
+        sh: |
+          find ./roles -type f | fzf --prompt="Select the file to decrypt: "
+    cmds:
+      - ansible-vault decrypt "{{.FILE}}" --vault-password-file "$HOME/.config/dotfiles/vault-password.txt"
+    dir: "."
+
+  show-file-content:
+    desc: "Show file content"
+    vars:
+      FILE:
+        sh: |
+          find ./roles -type f | fzf --prompt="Select the file to show: "
+    cmds:
+      - cat "{{.FILE}}"
+    dir: "."
+  
+  encrypt_string:
+    desc: "Encrypt a string with Ansible Vault and copy to clipboard"
+    cmds:
+      - |
+        echo "Enter the name of the string:"
+        read -r STRING_NAME
+        echo "Enter the string you want to encrypt:"
+        read -r STRING_TO_ENCRYPT
+        ENCRYPTED_STRING=$(ansible-vault encrypt_string --vault-password-file "$HOME/.config/dotfiles/vault-password.txt" --stdin-name $STRING_NAME <<< "$STRING_TO_ENCRYPT")
+        echo "$ENCRYPTED_STRING"
+        echo "$ENCRYPTED_STRING" | pbcopy
+        echo "Encrypted string copied to clipboard."
