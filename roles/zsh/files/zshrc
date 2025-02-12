@@ -110,9 +110,9 @@ source ~/managed-repos/fzf-git.sh/fzf-git.sh
 bindkey -s "^f" "tmux-sessionizer\n"
 
 # ----------------------------------------------------------------------------
-# go-taskfile
+# go-taskfile tasklist
 # -----------------------------------------------------------------------------
-t () {
+t (){
     # Attempt to store the output of `task -as` while capturing any errors
     TASK_OUTPUT=$(task -as 2>&1)  # Redirects both standard output and errors
 
@@ -131,6 +131,21 @@ t () {
         task "$TASK"
     else
         echo "No task selected."
+    fi
+}
+
+# ----------------------------------------------------------------------------
+# makefile tasklist
+# -----------------------------------------------------------------------------
+m (){
+    local target
+    target=$(make -pRrq | awk -F: '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {print $1}' | sort -u | grep -v -E '^(Makefile|\.PHONY)$' | fzf --prompt="Select a make target: " --height=20 --border --exit-0)
+    
+    if [[ -n "$target" ]]; then
+        echo "Running: make $target"
+        make "$target"
+    else
+        echo "No target selected."
     fi
 }
 
