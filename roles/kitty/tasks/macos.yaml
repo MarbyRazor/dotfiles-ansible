@@ -1,0 +1,7 @@
+--- 
+- name: Install Kitty
+  community.general.homebrew:
+    name:
+      - kitty
+    state: latest
+

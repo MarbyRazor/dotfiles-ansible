@@ -1,0 +1,6 @@
+---
+- name: Install required packages on Debian/Ubuntu
+  apt:
+    name: [git, zsh, vim]
+    state: present
+  become: true
