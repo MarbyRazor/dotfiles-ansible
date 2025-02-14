@@ -1,0 +1,24 @@
+---
+- name: Dependencies
+  community.general.homebrew:
+    name:
+      - curl
+      - wget
+      - tree-sitter
+      - unzip
+      - npm
+      - deno
+      - prettier
+      - shfmt
+      - shellcheck
+      - luarocks
+      - ripgrep
+      - rust
+    state: latest
+  
+- name: Install
+  community.general.homebrew:
+    name:
+      - neovim
+    state: latest
+

@@ -1,0 +1,61 @@
+---
+- name: Ensure .ssh directory exists
+  file:
+    path: "{{ ansible_user_dir }}.ssh"
+    state: directory
+    mode: '0700'
+  become: yes
+
+- name: Deploy the SSH private key
+  copy:
+    src: id_github_marby_razor
+    dest: "{{ ansible_user_dir }}/.ssh/id_github_marby_razor"
+    mode: '0600'
+
+- name: Deploy the SSH public key
+  copy:
+    src: id_github_marby_razor.pub
+    dest: "{{ ansible_user_dir }}/.ssh/id_github_marby_razor.pub"
+    mode: '0644'
+
+- name: Ensure proper ownership
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    recurse: yes
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+
+- name: Add SSH key to ssh-agent
+  command: ssh-add "{{ ansible_user_dir }}/.ssh/id_github_marby_razor"
+  ignore_errors: yes  # Ignore errors if ssh-agent is not running
+
+- name: Create SSH config file if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.ssh/config"
+    state: touch
+    mode: '0644'
+
+- name: Configure SSH to use the GitHub key
+  lineinfile:
+    path:  "{{ ansible_user_dir }}/.ssh/config"
+    line: |
+      Host github.com
+        HostName github.com
+        User git
+        IdentityFile {{ ansible_user_dir }}/.ssh/id_github_marby_razor
+        IdentitiesOnly yes
+    state: present
+    create: yes
+
+- name: Ensure proper ownership of SSH config file
+  file:
+    path: "{{ ansible_user_dir }}/.ssh/config"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+
+- name: Start ssh-agent
+  shell: eval "$(ssh-agent -s)"
+
+- name: Add SSH key to ssh-agent
+  command: ssh-add {{ ansible_user_dir }}/.ssh/id_github_marby_razor
+  ignore_errors: yes  # Ignore errors if ssh-agent is not running

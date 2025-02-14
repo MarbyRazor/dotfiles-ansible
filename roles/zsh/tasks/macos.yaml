@@ -1,0 +1,29 @@
+---
+- name: Meslo Nerd Font installieren
+  community.general.homebrew:
+      name: font-meslo-lg-nerd-font
+      state: present
+
+- name: Install powerlevel10k
+  community.general.homebrew:
+    name:
+      - powerlevel10k
+    state: latest
+
+- name: Install zsh-syntax-highlighting
+  community.general.homebrew:
+    name:
+      - zsh-syntax-highlighting
+    state: latest
+
+- name: Install zsh-autosuggestions
+  community.general.homebrew:
+    name:
+      - zsh-autosuggestions
+    state: latest
+
+- name: Install zsh-completions
+  community.general.homebrew:
+    name:
+      - zsh-completions
+    state: latest

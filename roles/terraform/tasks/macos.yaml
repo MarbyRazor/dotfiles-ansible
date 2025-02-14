@@ -1,0 +1,12 @@
+--- 
+- name: Add HashiCorp tap
+  shell: brew tap hashicorp/tap
+  args:
+    executable: /bin/bash
+  changed_when: false
+
+- name: Install HashiCorp Vault
+  shell: brew install hashicorp/tap/terraform
+  args:
+    executable: /bin/bash
+  changed_when: false

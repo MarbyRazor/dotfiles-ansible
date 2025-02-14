@@ -1,27 +1,21 @@
 ---
-- name: Dependencies
-  community.general.homebrew:
-    name:
-      - curl
-      - wget
-      - tree-sitter
-      - unzip
-      - npm
-      - deno
-      - prettier
-      - shfmt
-      - shellcheck
-      - luarocks
-      - ripgrep
-      - rust
-    state: latest
-  
-- name: Install
-  community.general.homebrew:
-    name:
-      - neovim
-    state: latest
+- name: "Include macOS tasks"
+  include_tasks: "{{ role_path }}/tasks/macos.yaml"
+  when: ansible_os_family == "Darwin"
 
+# - name: "Include Debian tasks"
+#   include_tasks: "{{ role_path }}/tasks/debian.yaml"
+#   when: ansible_os_family == "Debian"
+#
+# - name: "Include RedHat tasks"
+#   include_tasks: "{{ role_path }}/tasks/redhat.yaml"
+#   when: ansible_os_family == "RedHat"
+#
+# - name: "Include Arch Linux tasks"
+#   include_tasks: "{{ role_path }}/tasks/archlinux.yaml
+#   when: ansible_distribution == "Archlinux"
+
+# General settings
 - name: Clone
   ansible.builtin.git:
     clone: yes
