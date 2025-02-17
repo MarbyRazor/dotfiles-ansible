@@ -15,7 +15,7 @@
       - ripgrep
       - rust
     state: latest
-  
+
 - name: Install
   community.general.homebrew:
     name:

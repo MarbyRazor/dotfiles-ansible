@@ -1,4 +1,16 @@
 --- 
+- name: Dependencies tap
+  shell: brew tap arl/arl
+  args:
+    executable: /bin/bash
+  changed_when: false
+
+- name: Dependencies
+  shell: brew install gitmux
+  args:
+    executable: /bin/bash
+  changed_when: false
+
 - name: Install
   community.general.homebrew:
     name:
