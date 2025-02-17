@@ -14,3 +14,33 @@
 # - name: "Include Arch Linux tasks"
 #   include_tasks: "{{ role_path }}/tasks/archlinux.yaml
 #   when: ansible_distribution == "Archlinux"
+
+- name: Determine K9s config directory (macOS)
+  set_fact:
+    k9s_config_dir: >-
+      {{ ansible_env.XDG_CONFIG_HOME | default(ansible_env.HOME + '/Library/Application Support') }}/k9s
+  when: ansible_facts['os_family'] == "Darwin"
+
+- name: Determine K9s config directory (Linux)
+  set_fact:
+    k9s_config_dir: "{{ ansible_env.XDG_CONFIG_HOME | default(ansible_env.HOME + '/.config') }}/k9s"
+  when: ansible_facts['os_family'] in ["Debian", "RedHat", "Archlinux"]
+
+- name: Create K9s skins directory
+  file:
+    path: "{{ k9s_config_dir }}/skins"
+    state: directory
+    mode: "0755"
+
+- name: Download and extract Catppuccin Theme for K9s
+  shell: >
+    curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz |
+    tar xz -C "{{ k9s_config_dir }}/skins" --strip-components=2 k9s-main/dist
+  args:
+    creates: "{{ k9s_config_dir }}/skins/catppuccin-macchiato.yaml"
+
+- name: Copy config.yaml
+  ansible.builtin.copy:
+    dest: "{{ k9s_config_dir }}/config.yaml"
+    src: "config.yaml"
+    mode: '0744'
