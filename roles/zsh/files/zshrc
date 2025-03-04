@@ -57,7 +57,7 @@ alias k=kubectl
 # Switch context
 knx () {
   local context
-  context=$(kubectl config get-contexts --no-headers | awk '{print $1}' | fzf --prompt="Select Context: " --height=40% --reverse)
+  context=$(kubectl config get-contexts --no-headers | awk '{print $2}' | fzf --prompt="Select Context: " --height=40% --reverse)
   if [ -n "$context" ]; then
     kubectl config use-context "$context"
   else
