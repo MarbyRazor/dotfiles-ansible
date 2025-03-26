@@ -6,7 +6,6 @@
       - wget
       - tree-sitter
       - unzip
-      - npm
       - deno
       - prettier
       - shfmt
@@ -14,6 +13,13 @@
       - luarocks
       - ripgrep
       - rust
+      - delve
+      - gotestsum
+    state: latest
+
+- name: Install Node.js and npm dependencies
+  community.general.homebrew:
+    name: node
     state: latest
 
 - name: Install
@@ -21,4 +27,3 @@
     name:
       - neovim
     state: latest
-
