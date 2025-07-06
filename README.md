@@ -19,6 +19,8 @@ git_user_email: your-email@address.com
 git_user_name: your name
 ```
 
+## Optional for encryption
+
 Afterwards create the following file:
 
 ```bash
@@ -27,14 +29,30 @@ touch $HOME/.config/dotfiles/vault-password.txt
 
 and copy the required password from your keepass file :wink:
 
-Furthermore add your github ssh public and private key to `$HOME/.ssh/`.
+# Role `custom`
 
-# Installation
+Will create a execution folder for custom scripts and copies `bin/dotfiles` script for global execution.
 
-> Maybe he is asking for your sudo password. This is needed for install the developer tools for your cli.
+# Default Installation
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarbyRazor/dotfiles-ansible/main/bin/dotfiles)"
+```
+
+This will install all packages.
+
+# Custom Installation
+
+```bash
+mkdir -p $HOME/repos
+git clone "https://github.com/MarbyRazor/dotfiles-ansible.git" $HOME/repos
+```
+
+Choose your packages in `tags` like:
+
+```bash
+cd $HOME/repos/bin
+./dotfiles --tags="custom,neovim,tmux,fzf"
 ```
 
 # Executing the playbook

@@ -6,15 +6,11 @@
       - wget
       - tree-sitter
       - unzip
-      - deno
       - prettier
       - shfmt
       - shellcheck
       - luarocks
       - ripgrep
-      - rust
-      - delve
-      - gotestsum
     state: latest
 
 - name: Install Node.js and npm dependencies

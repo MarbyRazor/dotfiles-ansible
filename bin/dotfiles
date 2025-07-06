@@ -7,6 +7,23 @@ REPO_DIR="$HOME/repos"
 DOTFILES_DIR="$REPO_DIR/dotfiles"
 SSH_DIR="$HOME/.ssh"
 
+# Default: no tags (== run everything)
+TAGS=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --tags)
+            TAGS="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unbekannter Parameter: $1"
+            exit 1
+            ;;
+    esac
+done
+
 # Install brew
 if ! [ -x "$(command -v brew)" ]; then
 	echo "Installing Brew"
@@ -49,17 +66,25 @@ else
 	git -C "$DOTFILES_DIR" pull
 fi
 
-# Create path
+
+# Change to repo
 cd "$DOTFILES_DIR"
 
-# Update Galaxy
+# Install roles/collections
 ansible-galaxy install -r requirements.yml
 
-# Run playbook
+# Build ansible-playbook command
+ANSIBLE_CMD="ansible-playbook --diff --extra-vars \"@$CONFIG_DIR/values.yaml\" $DOTFILES_DIR/main.yaml"
+
+# Vault password
 if [[ -f "$CONFIG_DIR/vault-password.txt" ]]; then
-	# ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" --vault-password-file "$CONFIG_DIR/vault-password.txt" "$DOTFILES_DIR/main.yaml" "$@"
-	ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" --vault-password-file "$CONFIG_DIR/vault-password.txt" "$DOTFILES_DIR/main.yaml" "$@"
-else
-	# ansible-playbook --diff --ask-become-pass --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
-	ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" "$DOTFILES_DIR/main.yaml" "$@"
+    ANSIBLE_CMD+=" --vault-password-file \"$CONFIG_DIR/vault-password.txt\""
 fi
+
+# Optional tags
+if [[ -n "$TAGS" ]]; then
+    ANSIBLE_CMD+=" --tags \"$TAGS\""
+fi
+
+# Run playbook
+eval $ANSIBLE_CMD
