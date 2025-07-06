@@ -5,12 +5,6 @@
     state: directory
     mode: '0755'
 
-- name: Copy dotfiles
-  ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.local/bin/dotfiles"
-    src: "{{ playbook_dir }}/bin/dotfiles"
-    mode: '0744'
-
 - name: Copy cheat
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.local/bin/cheat"

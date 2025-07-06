@@ -29,9 +29,10 @@ touch $HOME/.config/dotfiles/vault-password.txt
 
 and copy the required password from your keepass file :wink:
 
-# Role `custom`
+# Role `dotfiles`
 
-Will create a execution folder for custom scripts and copies `bin/dotfiles` script for global execution.
+Will create a execution folder and copies `bin/dotfiles` script for global execution.
+Will always executed.
 
 # Default Installation
 
