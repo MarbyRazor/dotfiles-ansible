@@ -4,7 +4,7 @@ set -e
 # Paths
 CONFIG_DIR="$HOME/.config/dotfiles"
 REPO_DIR="$HOME/repos"
-DOTFILES_DIR="$REPO_DIR/dotfiles"
+DOTFILES_DIR="$REPO_DIR/dotfiles-ansible"
 SSH_DIR="$HOME/.ssh"
 
 # Default: no tags (== run everything)

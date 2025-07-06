@@ -52,7 +52,7 @@ Choose your packages in `tags` like:
 
 ```bash
 cd $HOME/repos/bin
-./dotfiles --tags="custom,neovim,tmux,fzf"
+./dotfiles --tags "custom,neovim,tmux,fzf"
 ```
 
 # Executing the playbook
